@@ -29,7 +29,7 @@
         "symfony/templating": "^5.3",
         "symfony/twig-bundle": "^5.3",
         "symfony/validator": "^5.3",
-        "symfony/webpack-encore-bundle": "^1.12",
+        "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "^5.3"
     },
     "require-dev": {
