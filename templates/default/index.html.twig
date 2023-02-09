@@ -4,35 +4,35 @@
 
     {% frame with { backgroundColor: 'primary', options: ['center'] } %}
         <h1 class="text-uppercase display-4">
-            S/PKG/BLD
+            ncn TYPO3 Builder
         </h1>
         <p class="lead">
-            Sitepackage-Builder is your kickstarter for modern TYPO3 Theme development. Learn more about TYPO3 templating
-            or start your own template right now.
+            Sitepackage-Builder ist dein Kickstarter für die moderne TYPO3 Theme-Entwicklung. Erfahren hier mehr über TYPO3 Templating
+            oder starten jetzt dein eigenes TYPO3 Projekt.
         </p>
         <p>
             <a href="{{ path('default_new') }}" class="btn btn-outline-default btn-lg text-uppercase">
                 {{ contentget( 'images/box-add.svg' ) }}
-                <span class="btn-text">Create Sitepackage</span>
+                <span class="btn-text">Sitepackage erstellen</span>
             </a>
         </p>
     {% endframe %}
 
     {% frame with { options: ['center'] } %}
-        <h2 class="text-uppercase">What is a Sitepackage?</h2>
+        <h2 class="text-uppercase">Was ist ein Sitepackage?</h2>
         <p>
-            A Sitepackage is a <strong>TYPO3 Extension</strong> that containers all relevant configuration for a Website.
-            Having all configuration stored in a package keeps it protected from unauthorized access.
-            As Extension your Sitepackage will manage your dependencies to other Extensions and/or the TYPO3 Version.
-            This will ease your deployment and enables you to put the configuration of your Webiste under Version Control.
+            Ein Sitepackage ist eine <strong>TYPO3 Extension</strong>, die alle relevanten Konfigurationen für eine Website enthält.
+            Dadurch, dass die gesamte Konfiguration in einem Paket gespeichert wird, ist sie vor unberechtigtem Zugriff geschützt.
+            Als Extension verwaltet Ihr Sitepackage Ihre Abhängigkeiten zu anderen Extensions und/oder der TYPO3 Version.
+            Dies erleichtert die Bereitstellung und ermöglicht es Ihnen, die Konfiguration Ihrer Website unter Versionskontrolle zu stellen.
         </p>
         <p>
-            Learn more about the <strong>best practices</strong> recommended from the TYPO3 Core Team.
+            Erfahren Sie mehr über die <strong>best practices</strong>, die vom TYPO3 Core Team empfohlen werden.
         </p>
         <p>
             <a href="https://speakerdeck.com/benjaminkott/the-anatomy-of-typo3-sitepackages" class="btn btn-primary" target="_blank">
                 {{ contentget( 'images/book-open.svg' ) }}
-                <span class="btn-text">Learn about Sitepackages</span>
+                <span class="btn-text">Erfahren hier mehr über Sitepackages</span>
             </a>
         </p>
     {% endframe %}
@@ -103,11 +103,11 @@
     {% endframe %}
 
     {% frame with { backgroundColor: 'light', options: ['center'] } %}
-        <h2>Start your own Sitepackage</h2>
+        <h2>Starten dein eigenes Sitepackage</h2>
         <p>
             <a href="/new/" class="btn btn-primary">
                 {{ contentget( 'images/box-add.svg' ) }}
-                <span class="btn-text">Create Sitepackage</span>
+                <span class="btn-text">Sitepackage erstellen</span>
             </a>
         </p>
     {% endframe %}

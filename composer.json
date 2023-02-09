@@ -2,6 +2,9 @@
     "name": "bk2k/packagebuilder",
     "license": "MIT",
     "type": "project",
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.21.0"
+    },
     "require": {
         "php": "^7.4",
         "doctrine/annotations": "^1.13",
@@ -64,6 +67,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
+        }
     }
 }

@@ -1,0 +1,21 @@
+{
+    "name": "{{ package.vendorNameAlternative }}/{{ package.packageNameAlternative }}",
+    "type": "typo3-cms-extension",
+    "description": "{{ package.description}}",
+    "homepage": "{{ package.author.homepage }}",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "ncn/ncn-basic": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}"
+    },
+    "autoload": {
+        "psr-4": {
+            "{{ package.vendorName }}\\{{ package.packageName }}\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "{{ package.extensionKey }}"
+        }
+    }
+}

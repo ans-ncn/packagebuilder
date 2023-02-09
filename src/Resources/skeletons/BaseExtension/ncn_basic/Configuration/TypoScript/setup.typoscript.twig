@@ -1,0 +1,25 @@
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        theme = EXT:{{ package.extensionKey }}/Resources/Public/Scss/Theme/theme.scss
+        custom = EXT:{{ package.extensionKey }}/Resources/Public/Scss/custom.scss
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        {{ package.extensionKey }}_scripts = EXT:{{ package.extensionKey }}/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}

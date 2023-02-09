@@ -37,6 +37,7 @@ class Package implements \JsonSerializable
     /**
      * @Assert\NotBlank()
      * @Assert\Choice({
+     *     "ncn_basic",
      *     "bootstrap_package",
      *     "fluid_styled_content"
      * })
@@ -46,7 +47,7 @@ class Package implements \JsonSerializable
      *
      * @var string
      */
-    private $basePackage = 'bootstrap_package';
+    private $basePackage = 'ncn_basic';
 
     /**
      * @var string

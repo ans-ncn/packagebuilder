@@ -11,10 +11,10 @@
 </head>
 <body>
 
-    <header class="navbar navbar-dark bg-darker navbar-expand-lg" role="banner">
+    <header class="navbar navbar-light bg-white navbar-expand-lg" role="banner">
         <div class="container">
             <a class="navbar-brand" href="{{ path('default_index') }}">
-                S/PKG/BLD
+                <img src="https://www.ncn.de/typo3conf/ext/ncn_ncn_template/Resources/Public/img/ncn-kg.svg" title="ncn KG" width="129" height="54" class="logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
     <footer class="footer">
 
         {% frame with { backgroundColor: 'dark', options: ['indent', 'center'] } %}
-            <h2>About the Author</h2>
+            <h2>Über den Autor</h2>
             <figure class="figure">
                 <img src="https://www.gravatar.com/avatar/{{ template.author.hash }}?s=120" class="figure-img rounded-circle center-block" alt="{{ template.author.name }}" />
             </figure>
@@ -92,15 +92,15 @@
 
         {% frame with { backgroundColor: 'darker', options: ['indent', 'center'] } %}
             <p class="mb-1">
-                &copy; Benjamin Kott {{ 'now'|date('Y') }}
+                &copy; Anatoli Sobolewski {{ 'now'|date('Y') }}
             </p>
             <nav>
                 <ul class="nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('default_imprint') }}">Imprint</a>
+                        <a class="nav-link" href="{{ path('default_imprint') }}">Impressum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('default_privacy') }}">Privacy</a>
+                        <a class="nav-link" href="{{ path('default_privacy') }}">Datenschutz</a>
                     </li>
                 </ul>
             </nav>
@@ -114,7 +114,7 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-77390203-1', 'auto');
+        ga('create', 'UA-914760-67', 'auto');
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
     </script>
