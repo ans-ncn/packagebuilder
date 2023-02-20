@@ -38,8 +38,8 @@ class PackageType extends AbstractType
             ->add('basePackage', ChoiceType::class, [
                 'label' => 'Base Package',
                 'choices' => [
-                    'ncn custom theme extension' => 'ncn_custom_theme',
-                    'ncn custom package' => 'ncn_custom_package',
+                    'ncn TYPO3 Package + Custom Theme' => 'ncn_custom_package',
+                    'ncn Custom Theme only' => 'ncn_custom_theme',
                     'Bootstrap Package' => 'bootstrap_package',
                     'Fluid Styled Content' => 'fluid_styled_content',
                 ],
