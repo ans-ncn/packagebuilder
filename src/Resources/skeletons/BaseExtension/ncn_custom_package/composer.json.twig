@@ -1,5 +1,5 @@
 {
-    "name": "ncn/{{ package.packageNameAlternative }}",
+    "name": "ncn/ncn-{{ package.packageNameAlternative }}-package",
     "description": "",
     "license": ["GPL-2.0-or-later"],
     "config": {
@@ -17,6 +17,7 @@
         "ncn/ncn-basic": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
         "ncn/ncn-cookieconsent": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
         "ncn/ncn-icons": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
+		"ncn/ncn-{{ package.packageNameAlternative }}-theme": "dev-main",
         {% if package.typo3version < 9000000 %}{% elseif package.typo3version < 10000000 %}{% else %} "typo3/cms-backend": "^11.5.0",
 		"typo3/cms-belog": "^11.5.0",
 		"typo3/cms-beuser": "^11.5.0",
