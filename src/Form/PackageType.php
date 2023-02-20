@@ -48,7 +48,7 @@ class PackageType extends AbstractType
             ->add('title', TextType::class, [
                 'attr' => [
                     'autocomplete' => 'off',
-                    'placeholder' => 'My Sitepackage',
+                    'placeholder' => 'Vendor',
                 ],
             ])
             ->add('description', TextareaType::class, [
@@ -66,7 +66,14 @@ class PackageType extends AbstractType
                     'placeholder' => 'https://github.com/username/my_sitepackage',
                 ],
             ])
-            ->add('author', AuthorType::class);
+            ->add('author', AuthorType::class)
+        
+            ->add('WebsiteTitle', TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'Company (short name)',
+                ],
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolver $resolver)

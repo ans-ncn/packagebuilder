@@ -59,6 +59,12 @@
             <dt class="col-sm-3">Homepage</dt>
             <dd class="col-sm-9">{{ sitepackage.author.homepage }}</dd>
         </dl>
+       
+    {% endframe %}
+    {% frame %}
+        <h2>Kundendaten</h2>
+    {% endframe %}  
+    {% frame %} 
         <p>
             <a href="{{ path('default_new') }}" class="btn btn-light">
                 {{ contentget( 'images/arrow-left.svg' ) }}
@@ -69,6 +75,5 @@
                 <span class="btn-text">Edit Configuration</span>
             </a>
         </p>
-    {% endframe %}
-
+    {% endframe %}  
 {% endblock %}

@@ -48,7 +48,7 @@ class Package implements \JsonSerializable
      *
      * @var string
      */
-    private $basePackage = 'ncn_custom_theme';
+    private $basePackage = 'ncn_custom_package';
 
     /**
      * @var string
@@ -106,6 +106,11 @@ class Package implements \JsonSerializable
      * @var string
      */
     private $extensionKey;
+
+    /**
+     * @var string
+     */
+    private $websiteTitle;
 
     /**
      * @Assert\Url()
@@ -309,6 +314,47 @@ class Package implements \JsonSerializable
     /**
      * @return string
      */
+    public function getNcnExtensionKey()
+    {
+        return $this->ncnExtensionKey;
+    }
+
+    /**
+     * @param string $ncnExtensionKey
+     *
+     * @return Package
+     */
+    public function setNcnExtensionKey($ncnExtensionKey)
+    {
+        $this->ncnExtensionKey = 'ncn_'.$packageName.'_package';
+
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getWebsiteTitle()
+    {
+        return $this->websiteTitle;
+    }
+
+    /**
+     * @param string $websiteTitle
+     *
+     * @return Package
+     */
+
+    public function setWebsiteTitle($websiteTitle)
+    {
+        $this->websiteTitle = $websiteTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getRepositoryUrl()
     {
         return $this->repositoryUrl;
@@ -360,6 +406,11 @@ class Package implements \JsonSerializable
             'extensionKey' => $this->getExtensionKey(),
             'repositoryUrl' => $this->getRepositoryUrl(),
             'author' => $this->getAuthor(),
+            'websiteTitle' => $this->getWebsiteTitle(),
+            'domain' => $this->getDomain(),
+            'defaultEmail' => $this->getDefaultEmail(),
+            'defaultSenderName' => $this->getDefaultSenderName(),
+            'defaultSenderEmail' => $this->getDefaultSenderEmail(),
         ];
     }
 }

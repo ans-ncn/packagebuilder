@@ -11,7 +11,7 @@ config {
 page {
     site {
         domain = {{ package.targetDomain }}
-        name = {{ package.title }}
+        name = {{ package.websiteTitle }}
         defaultEmail = {{ package.defaultEmail }}
         defaultSenderName = {{ package.defaultSenderName }}
         defaultSenderEmail = {{ package.defaultSenderEmail }}
@@ -21,11 +21,51 @@ page {
         fileInverted = EXT:{{ package.extensionKey }}/Resources/Public/Images/logo-inverted.svg
         height = {{ package.logoHeight }}
         width = {{ package.logoWidth }}
-        alt = {{ package.title }}
-        linktitle = {{ package.title }}
+        alt = {{ package.websiteTitle }} Logo
+        linktitle = {{ package.websiteTitle }} Startseite
     }
     favicon {
         file = EXT:{{ package.extensionKey }}/Resources/Public/Icons/favicon.ico
+    }
+    tracking {
+        analytics {
+            ua = {{ package.analyticsUA }}
+            ga4 = {{ package.analyticsGA4 }}
+        }
+        facebook {
+            pixel = {{ package.facebookPixel }}
+        }
+    }
+    privacy {
+        pageUid = 15
+    }
+  	theme{
+        breadcrumb {
+            enableLevel = 1
+        }
+        socialmedia.channels {
+            facebook.url = 
+            instagram.url = 
+            xing.url = 
+            youtube.url = 
+        }
+        service {
+            enable = 1
+            navigationValue = 
+        }
+        language {
+            enable = 0
+        }
+        googleFont {
+            enable = 1
+            font = Open Sans
+            weight = 300,400,500,600
+        }
+        fontAwesome {
+            enable = 1
+            id = 99d48d6a78
+        }
+        navigation.style = default-transition
     }
 }
 
