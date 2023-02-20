@@ -37,7 +37,8 @@ class Package implements \JsonSerializable
     /**
      * @Assert\NotBlank()
      * @Assert\Choice({
-     *     "ncn_basic",
+     *     "ncn_custom_theme",
+     *     "ncn_custom_package",
      *     "bootstrap_package",
      *     "fluid_styled_content"
      * })
@@ -47,7 +48,7 @@ class Package implements \JsonSerializable
      *
      * @var string
      */
-    private $basePackage = 'ncn_basic';
+    private $basePackage = 'ncn_custom_theme';
 
     /**
      * @var string
