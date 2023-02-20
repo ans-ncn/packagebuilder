@@ -30,18 +30,21 @@ class AuthorType extends AbstractType
                 'attr' => [
                     'autocomplete' => 'off',
                     'placeholder' => 'john.doe@example.com',
+                    'value' => 'web@ncn.de'
                 ],
             ])
             ->add('company', TextType::class, [
                 'attr' => [
                     'autocomplete' => 'off',
                     'placeholder' => 'Company Inc.',
+                    'value' => 'ncn KG'
                 ],
             ])
             ->add('homepage', TextType::class, [
                 'attr' => [
                     'autocomplete' => 'off',
-                    'placeholder' => 'https://www.example.com',
+                    'placeholder' => 'https://www.ncn.de',
+                    'value' => 'https://www.ncn.de'
                 ],
             ]);
     }

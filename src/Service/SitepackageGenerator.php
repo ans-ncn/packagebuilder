@@ -32,13 +32,19 @@ class SitepackageGenerator
     {
         $extensionKey = $package->getExtensionKey();
         $this->filename = $extensionKey . '.zip';
+
         $sourceDir = __DIR__ . '/../Resources/skeletons/BaseExtension/' . $package->getBasePackage() . '/';
+        $customThemeDir = __DIR__ . '/../Resources/skeletons/BaseExtension/ncn_custom_theme/';
+        $customThemeNewDir = 'packages/ncn_'. $package->getPackageNameAlternative() .'_theme';
+        
         $this->zipPath = tempnam(sys_get_temp_dir(), $this->filename);
         $fileList = FileUtility::listDirectory($sourceDir);
+        $fileListCustomTheme = FileUtility::listDirectory($customThemeDir);
 
         $zipFile = new \ZipArchive();
         $opened = $zipFile->open($this->zipPath, \ZipArchive::CREATE);
         if (true === $opened) {
+            
             foreach ($fileList as $file) {
                 if ($file !== $this->zipPath && file_exists($file)) {
                     $baseFileName = $this->createRelativeFilePath($file, $sourceDir);
@@ -53,6 +59,26 @@ class SitepackageGenerator
                     }
                 }
             }
+            
+            if ($package->getBasePackage() == 'ncn_custom_package'){
+                $zipFile->addEmptyDir($customThemeNewDir);
+
+                foreach ($fileListCustomTheme as $file) {
+                    $baseFileName = $this->createRelativeFilePath($file, $customThemeDir);
+                    $newBaseFileName = $customThemeNewDir.'/'.$baseFileName;
+
+                    if (is_dir($file)) {
+                        $zipFile->addEmptyDir($newBaseFileName);
+                    } elseif (!$this->isTwigFile($file)) {
+                        $zipFile->addFile($file, $newBaseFileName);
+                    } else {
+                        $content = $this->getFileContent($file, $package);
+                        $nameInZip = $this->removeTwigExtension($newBaseFileName);
+                        $zipFile->addFromString($nameInZip, $content);
+                    }
+                }
+            }
+            
             $zipFile->close();
         }
     }
