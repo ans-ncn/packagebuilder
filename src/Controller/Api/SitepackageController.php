@@ -69,8 +69,8 @@ class SitepackageController extends AbstractController
         $sitepackage = $this->serializer->deserialize($content, Package::class, 'json');
         $this->validateObject($sitepackage);
 
-        $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase($sitepackage->getAuthor()->getCompany()));
-        $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getVendorName()));
+        $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase('Ncn'));
+        $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed('ncn'));
         $sitepackage->setPackageName(StringUtility::stringToUpperCamelCase($sitepackage->getTitle()));
         $sitepackage->setPackageNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getPackageName()));
         $sitepackage->setExtensionKey(StringUtility::camelCaseToLowerCaseUnderscored($sitepackage->getPackageName()));

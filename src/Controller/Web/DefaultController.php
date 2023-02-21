@@ -44,8 +44,8 @@ class DefaultController extends AbstractController
         $form = $this->createNewSitePackageForm($sitepackage);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase($sitepackage->getAuthor()->getCompany()));
-            $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getVendorName()));
+            $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase('Ncn'));
+            $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed('ncn'));
             $sitepackage->setPackageName(StringUtility::stringToUpperCamelCase($sitepackage->getTitle()));
             $sitepackage->setPackageNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getPackageName()));
             $sitepackage->setExtensionKey(StringUtility::camelCaseToLowerCaseUnderscored($sitepackage->getPackageName()));
@@ -81,8 +81,8 @@ class DefaultController extends AbstractController
         $form = $this->createEditSitePackageForm($sitepackage);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase($sitepackage->getAuthor()->getCompany()));
-            $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getVendorName()));
+            $sitepackage->setVendorName(StringUtility::stringToUpperCamelCase('Ncn'));
+            $sitepackage->setVendorNameAlternative(StringUtility::camelCaseToLowerCaseDashed('ncn'));
             $sitepackage->setPackageName(StringUtility::stringToUpperCamelCase($sitepackage->getTitle()));
             $sitepackage->setPackageNameAlternative(StringUtility::camelCaseToLowerCaseDashed($sitepackage->getPackageName()));
             $sitepackage->setExtensionKey(StringUtility::camelCaseToLowerCaseUnderscored($sitepackage->getPackageName()));

@@ -68,10 +68,38 @@ class PackageType extends AbstractType
             ])
             ->add('author', AuthorType::class)
         
-            ->add('WebsiteTitle', TextType::class, [
+            ->add('websiteTitle', TextType::class, [
                 'attr' => [
                     'autocomplete' => 'off',
-                    'placeholder' => 'Company (short name)',
+                    'placeholder' => 'Website Pagetitle',
+                ],
+            ])
+
+            ->add('domain', TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'domain.tld',
+                ],
+            ])
+
+            ->add('defaultEmail', TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'info@domain.tld',
+                ],
+            ])
+
+            ->add('defaultSenderName', TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'Company',
+                ],
+            ])
+
+            ->add('defaultSenderEmail', TextType::class, [
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'noreply@domain.tld',
                 ],
             ]);
     }

@@ -29,9 +29,14 @@ class SitepackageGenerator
     protected $filename;
 
     public function create(Package $package)
-    {
-        $extensionKey = $package->getExtensionKey();
-        $this->filename = $extensionKey . '.zip';
+    { 
+        if ($package->getBasePackage() == 'ncn_custom_package'){
+            $extensionKey = $package->getPackageNameAlternative();
+        } else {
+            $extensionKey = $package->getExtensionKey();
+        }
+        
+        $this->filename = $extensionKey . '.zip'; 
 
         $sourceDir = __DIR__ . '/../Resources/skeletons/BaseExtension/' . $package->getBasePackage() . '/';
         $customThemeDir = __DIR__ . '/../Resources/skeletons/BaseExtension/ncn_custom_theme/';

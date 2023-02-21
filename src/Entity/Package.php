@@ -113,6 +113,26 @@ class Package implements \JsonSerializable
     private $websiteTitle;
 
     /**
+     * @var string
+     */
+    private $domain;
+
+    /**
+     * @var string
+     */
+    private $defaultEmail;
+
+    /**
+     * @var string
+     */
+    private $defaultSenderName;
+
+    /**
+     * @var string
+     */
+    private $defaultSenderEmail;
+
+    /**
      * @Assert\Url()
      * @SWG\Property(type="string", example="https://github.com/benjaminkott/packagebuilder")
      *
@@ -296,7 +316,7 @@ class Package implements \JsonSerializable
      */
     public function getExtensionKey()
     {
-        return $this->extensionKey;
+        return 'ncn_'.$this->extensionKey.'_theme';
     }
 
     /**
@@ -307,26 +327,6 @@ class Package implements \JsonSerializable
     public function setExtensionKey($extensionKey)
     {
         $this->extensionKey = $extensionKey;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNcnExtensionKey()
-    {
-        return $this->ncnExtensionKey;
-    }
-
-    /**
-     * @param string $ncnExtensionKey
-     *
-     * @return Package
-     */
-    public function setNcnExtensionKey($ncnExtensionKey)
-    {
-        $this->ncnExtensionKey = 'ncn_'.$packageName.'_package';
 
         return $this;
     }
@@ -348,6 +348,90 @@ class Package implements \JsonSerializable
     public function setWebsiteTitle($websiteTitle)
     {
         $this->websiteTitle = $websiteTitle;
+
+        return $this;
+    }
+
+     /**
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+
+    /**
+     * @param string $domain
+     *
+     * @return Package
+     */
+
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultEmail()
+    {
+        return $this->defaultEmail;
+    }
+
+    /**
+     * @param string $defaultEmail
+     *
+     * @return Package
+     */
+
+    public function setDefaultEmail($defaultEmail)
+    {
+        $this->defaultEmail = $defaultEmail;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultSenderName()
+    {
+        return $this->defaultSenderName;
+    }
+
+    /**
+     * @param string $defaultSenderName
+     *
+     * @return Package
+     */
+
+    public function setDefaultSenderName($defaultSenderName)
+    {
+        $this->defaultSenderName = $defaultSenderName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultSenderEmail()
+    {
+        return $this->defaultSenderEmail;
+    }
+
+    /**
+     * @param string $defaultSenderEmail
+     *
+     * @return Package
+     */
+
+    public function setDefaultSenderEmail($defaultSenderEmail)
+    {
+        $this->defaultSenderEmail = $defaultSenderEmail;
 
         return $this;
     }
