@@ -66,6 +66,25 @@ class PackageType extends AbstractType
                     'placeholder' => 'https://github.com/username/my_sitepackage',
                 ],
             ])
+
+            ->add('serverUrl', TextType::class, [
+                'label' => 'Server',
+                'required' => false,
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => 'p999999@p999999.webspaceconfig.de',
+                ],
+            ])
+
+            ->add('serverPath', TextType::class, [
+                'label' => 'Server path',
+                'required' => false,
+                'attr' => [
+                    'autocomplete' => 'off',
+                    'placeholder' => '/home/www/p999999/html/typo3-composer',
+                ],
+            ])
+
             ->add('author', AuthorType::class)
         
             ->add('websiteTitle', TextType::class, [

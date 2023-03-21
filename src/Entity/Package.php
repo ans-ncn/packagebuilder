@@ -143,6 +143,16 @@ class Package implements \JsonSerializable
     private $repositoryUrl = '';
 
     /**
+     * @var string
+     */
+    private $serverUrl;
+
+    /**
+     * @var string
+     */
+    private $serverPath;
+
+    /**
      * @Assert\Valid
      *
      * @Serializer\Type(Author::class)
@@ -452,6 +462,46 @@ class Package implements \JsonSerializable
     public function setRepositoryUrl($repositoryUrl)
     {
         $this->repositoryUrl = $repositoryUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServerUrl()
+    {
+        return $this->serverUrl;
+    }
+
+    /**
+     * @param string $serverUrl
+     *
+     * @return Package
+     */
+    public function setServerUrl($serverUrl)
+    {
+        $this->serverUrl = $serverUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServerPath()
+    {
+        return $this->serverPath;
+    }
+
+    /**
+     * @param string $serverPath
+     *
+     * @return Package
+     */
+    public function setServerPath($serverPath)
+    {
+        $this->serverPath = $serverPath;
 
         return $this;
     }

@@ -5,7 +5,8 @@
     "config": {
 		"allow-plugins": {
 			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
+			"typo3/cms-composer-installers": true,
+			"helhum/dotenv-connector": true
 		},
 		"platform": {
 			"php": "8.1"
@@ -13,6 +14,7 @@
 		"sort-packages": true
 	},
     "require": {
+		"helhum/dotenv-connector": "^3.0",
 		"helhum/typo3-console": "^7.0.2",
         "ncn/ncn-basic": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
         "ncn/ncn-cookieconsent": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
@@ -45,7 +47,10 @@
     },
     "scripts": {
         "typo3-cms-scripts": [
-            "typo3cms install:fixfolderstructure"
+            "typo3cms install:fixfolderstructure",
+            "typo3cms database:updateschema '*.add'",
+			"typo3cms language:update",
+            "typo3cms cache:flush"
         ],
         "post-autoload-dump": [
             "@typo3-cms-scripts"

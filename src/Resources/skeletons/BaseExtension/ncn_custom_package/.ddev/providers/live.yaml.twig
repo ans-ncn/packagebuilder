@@ -1,0 +1,36 @@
+environment_variables:
+  server: p637368@p637368.webspaceconfig.de
+  deploymentPath: /home/www/p637368/html/typo3-composer
+
+
+db_pull_command:
+  service: host
+  command: |
+    set -x
+    # You can enable bash debugging output by uncommenting
+    set -eu -o pipefail
+    ssh -t ${server} -p 22 "cd ${deploymentPath}; ./vendor/bin/typo3cms database:export -c Default -e 'cf_*' -e 'cache_*' -e '[bf]e_sessions' -e sys_log" > .ddev/.downloads/db.sql
+    gzip .ddev/.downloads/db.sql
+
+db_import_command:
+  service: host
+  command: |
+    # set -x
+    set -eu -o pipefail
+    ddev import-db --src=".ddev/.downloads/db.sql.gz"
+    ddev typo3cms database:updateschema
+    ddev composer install
+
+files_pull_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    ls .ddev >/dev/null # This just refreshes stale NFS if possible
+    pushd public/fileadmin/ >/dev/null
+    rsync -avz -e 'ssh -p 22' ${server}:${deploymentPath}/public/fileadmin/ . --max-size=1.5m --exclude=_processed_
+
+files_import_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    echo "doing nothing ..."
