@@ -1,0 +1,70 @@
+{
+    "name": "ncn/ncn-{{ package.packageNameAlternative }}-multisite-package",
+    "description": "",
+    "license": ["GPL-2.0-or-later"],
+    "config": {
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true,
+			"helhum/dotenv-connector": true
+		},
+		"platform": {
+			"php": "8.1"
+		},
+		"sort-packages": true
+	},
+    "require": {
+		"helhum/dotenv-connector": "^3.0",
+		"helhum/typo3-console": "^7.0.2",
+        "ncn/ncn-basic": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
+        "ncn/ncn-cookieconsent": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
+        "ncn/ncn-icons": "{% if package.typo3version < 9000000 %}typo3v9{% elseif package.typo3version < 10000000 %}typo3v10{% else %}dev-main{% endif %}",
+		"ncn/ncn-{{ package.packageNameAlternative }}-basic": "dev-main",
+		"ncn/ncn-{{ package.packageNameAlternative }}-theme": "dev-main",
+        {% if package.typo3version < 9000000 %}{% elseif package.typo3version < 10000000 %}{% else %} "typo3/cms-backend": "^11.5.0",
+		"typo3/cms-belog": "^11.5.0",
+		"typo3/cms-beuser": "^11.5.0",
+		"typo3/cms-core": "^11.5.0",
+		"typo3/cms-dashboard": "^11.5.0",
+		"typo3/cms-extbase": "^11.5.0",
+		"typo3/cms-extensionmanager": "^11.5.0",
+		"typo3/cms-felogin": "^11.5.0",
+		"typo3/cms-filelist": "^11.5.0",
+		"typo3/cms-fluid": "^11.5.0",
+		"typo3/cms-fluid-styled-content": "^11.5.0",
+		"typo3/cms-form": "^11.5.0",
+		"typo3/cms-frontend": "^11.5.0",
+		"typo3/cms-impexp": "^11.5.0",
+		"typo3/cms-info": "^11.5.0",
+		"typo3/cms-install": "^11.5.0",
+		"typo3/cms-recordlist": "^11.5.0",
+		"typo3/cms-rte-ckeditor": "^11.5.0",
+		"typo3/cms-seo": "^11.5.0",
+		"typo3/cms-setup": "^11.5.0",
+		"typo3/cms-sys-note": "^11.5.0",
+		"typo3/cms-t3editor": "^11.5.0",
+		"typo3/cms-tstemplate": "^11.5.0",
+		"typo3/cms-viewpage": "^11.5.0" {% endif %}
+    },
+    "scripts": {
+        "typo3-cms-scripts": [
+            "typo3cms install:fixfolderstructure",
+            "typo3cms database:updateschema '*.add'",
+			"typo3cms language:update",
+            "typo3cms cache:flush"
+        ],
+        "post-autoload-dump": [
+            "@typo3-cms-scripts"
+        ]
+    },
+	"repositories": {
+		"local": {
+			"type": "path",
+			"url": "packages/*"
+		},
+		"ncn": {
+			"type": "composer",
+			"url": "https://composer.ncn.de/"
+		}
+	}
+}

@@ -39,6 +39,7 @@ class Package implements \JsonSerializable
      * @Assert\Choice({
      *     "ncn_custom_theme",
      *     "ncn_custom_package",
+     *     "ncn_custom_multisite_package",
      *     "bootstrap_package",
      *     "fluid_styled_content"
      * })

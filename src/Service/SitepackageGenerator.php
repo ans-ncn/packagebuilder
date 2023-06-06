@@ -30,7 +30,7 @@ class SitepackageGenerator
 
     public function create(Package $package)
     { 
-        if ($package->getBasePackage() == 'ncn_custom_package'){
+        if ($package->getBasePackage() == 'ncn_custom_package' || $package->getBasePackage() == 'ncn_custom_multisite_package'){
             $extensionKey = $package->getPackageNameAlternative();
         } else {
             $extensionKey = $package->getExtensionKey();
@@ -41,10 +41,15 @@ class SitepackageGenerator
         $sourceDir = __DIR__ . '/../Resources/skeletons/BaseExtension/' . $package->getBasePackage() . '/';
         $customThemeDir = __DIR__ . '/../Resources/skeletons/BaseExtension/ncn_custom_theme/';
         $customThemeNewDir = 'packages/ncn_'. $package->getPackageNameAlternative() .'_theme';
+
+        $customBasicDir = __DIR__ . '/../Resources/skeletons/BaseExtension/ncn_custom_basic/';
+        $customBasicNewDir = 'packages/ncn_'. $package->getPackageNameAlternative() .'_basic';
         
         $this->zipPath = tempnam(sys_get_temp_dir(), $this->filename);
         $fileList = FileUtility::listDirectory($sourceDir);
+
         $fileListCustomTheme = FileUtility::listDirectory($customThemeDir);
+        $fileListCustomBasic = FileUtility::listDirectory($customBasicDir);
 
         $zipFile = new \ZipArchive();
         $opened = $zipFile->open($this->zipPath, \ZipArchive::CREATE);
@@ -65,12 +70,31 @@ class SitepackageGenerator
                 }
             }
             
-            if ($package->getBasePackage() == 'ncn_custom_package'){
+            if ($package->getBasePackage() == 'ncn_custom_package' || $package->getBasePackage() == 'ncn_custom_multisite_package'){
                 $zipFile->addEmptyDir($customThemeNewDir);
 
                 foreach ($fileListCustomTheme as $file) {
                     $baseFileName = $this->createRelativeFilePath($file, $customThemeDir);
                     $newBaseFileName = $customThemeNewDir.'/'.$baseFileName;
+
+                    if (is_dir($file)) {
+                        $zipFile->addEmptyDir($newBaseFileName);
+                    } elseif (!$this->isTwigFile($file)) {
+                        $zipFile->addFile($file, $newBaseFileName);
+                    } else {
+                        $content = $this->getFileContent($file, $package);
+                        $nameInZip = $this->removeTwigExtension($newBaseFileName);
+                        $zipFile->addFromString($nameInZip, $content);
+                    }
+                }
+            }
+
+            if ($package->getBasePackage() == 'ncn_custom_multisite_package'){
+                $zipFile->addEmptyDir($customBasicNewDir);
+
+                foreach ($fileListCustomBasic as $file) {
+                    $baseFileName = $this->createRelativeFilePath($file, $customBasicDir);
+                    $newBaseFileName = $customBasicNewDir.'/'.$baseFileName;
 
                     if (is_dir($file)) {
                         $zipFile->addEmptyDir($newBaseFileName);

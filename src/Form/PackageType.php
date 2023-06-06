@@ -39,6 +39,7 @@ class PackageType extends AbstractType
                 'label' => 'Base Package',
                 'choices' => [
                     'ncn TYPO3 Package + Custom Theme' => 'ncn_custom_package',
+                    'ncn TYPO3 Multisite Package' => 'ncn_custom_multisite_package',
                     'ncn Custom Theme only' => 'ncn_custom_theme',
                     'Bootstrap Package' => 'bootstrap_package',
                     'Fluid Styled Content' => 'fluid_styled_content',
