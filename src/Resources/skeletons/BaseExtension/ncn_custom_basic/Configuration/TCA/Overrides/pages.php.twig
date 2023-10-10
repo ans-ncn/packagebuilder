@@ -6,14 +6,14 @@ call_user_func(function()
     /**
      * Temporary variables
      */
-    $extensionKey = '{{ package.extensionKey }}';
+    $extensionKey = 'ncn_{{ package.packageNameAlternative }}_basic';
 
     /**
-     * Default PageTS for {{ package.packageName }}
+     * Default PageTS for ncn_{{ package.packageNameAlternative }}_basic
      */
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
         $extensionKey,
         'Configuration/TsConfig/Page/All.tsconfig',
-        '{{ package.title }}'
+        '{{ package.packageNameAlternative }} Multisite Package'
     );
 });

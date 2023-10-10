@@ -6,14 +6,14 @@ call_user_func(function()
     /**
      * Temporary variables
      */
-    $extensionKey = '{{ package.extensionKey }}';
+    $extensionKey = 'ncn_{{ package.packageNameAlternative }}_basic';
 
     /**
-     * Default TypoScript for {{ package.packageName }}
+     * Default TypoScript for ncn_{{ package.packageNameAlternative }}_basic
      */
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
         $extensionKey,
-        'Configuration/TypoScript',
-        '{{ package.title }}'
+        'Configuration/TsConfig/Page/All.tsconfig',
+        '{{ package.packageNameAlternative }} Multisite Package'
     );
 });

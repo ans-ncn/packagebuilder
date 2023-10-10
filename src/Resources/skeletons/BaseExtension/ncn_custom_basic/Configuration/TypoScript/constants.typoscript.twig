@@ -2,7 +2,7 @@
 ### BASE CONFIG ###
 ###################
 config {
-    themecode = {{ package.extensionKey }}
+    themecode = ncn_{{ package.packageNameAlternative }}_basic
 }
 
 ############
@@ -17,15 +17,15 @@ page {
         defaultSenderEmail = {{ package.defaultSenderEmail }}
     }
     logo {
-        file = EXT:{{ package.extensionKey }}/Resources/Public/Images/logo.svg
-        fileInverted = EXT:{{ package.extensionKey }}/Resources/Public/Images/logo-inverted.svg
+        file = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/Images/logo.svg
+        fileInverted = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/Images/logo-inverted.svg
         height = {{ package.logoHeight }}
         width = {{ package.logoWidth }}
         alt = {{ package.websiteTitle }} Logo
         linktitle = {{ package.websiteTitle }} Startseite
     }
     favicon {
-        file = EXT:{{ package.extensionKey }}/Resources/Public/Icons/favicon.ico
+        file = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/Icons/favicon.ico
     }
     tracking {
         analytics {

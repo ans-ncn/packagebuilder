@@ -3,8 +3,8 @@
 ##############
 page {
     includeCSS {
-        theme = EXT:{{ package.extensionKey }}/Resources/Public/Scss/Theme/theme.scss
-        custom = EXT:{{ package.extensionKey }}/Resources/Public/Scss/custom.scss
+        theme = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/Scss/Theme/theme.scss
+        custom = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/Scss/custom.scss
     }
 
     includeJSLibs {
@@ -20,6 +20,6 @@ page {
     }
 
     includeJSFooter {
-        {{ package.extensionKey }}_scripts = EXT:{{ package.extensionKey }}/Resources/Public/JavaScript/Dist/scripts.js
+        ncn_{{ package.packageNameAlternative }}_basic_scripts = EXT:ncn_{{ package.packageNameAlternative }}_basic/Resources/Public/JavaScript/Dist/scripts.js
     }
 }
